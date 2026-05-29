@@ -1,0 +1,722 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>女书与山雾 | 做一日瑶家女儿，识一纸千年闺字</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;700&family=Noto+Sans+SC:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #1A365D; /* 蓝靛色 */
+            --secondary: #8B5A2B; /* 暖棕色 */
+            --accent: #C41E3A; /* 朱砂红 */
+            --light: #F5F5F0; /* 米白色 */
+            --dark: #2D3748; /* 深灰色 */
+        }
+
+        body {
+            font-family: 'Noto Sans SC', sans-serif;
+            color: var(--dark);
+            line-height: 1.6;
+            background-color: var(--light);
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Noto Serif SC', serif;
+            font-weight: 600;
+            color: var(--primary);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* 导航栏 */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color: rgba(245, 245, 240, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 15px 0;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Noto Serif SC', serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 400;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .book-btn {
+            background-color: var(--primary);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 4px;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
+
+        .book-btn:hover {
+            background-color: #152a47;
+            color: white;
+        }
+
+        /* 首屏Hero区 */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(26, 54, 93, 0.6), rgba(26, 54, 93, 0.6)), 
+                        url('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            margin-top: 60px;
+        }
+
+        .hero-content h1 {
+            font-size: 4rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: white;
+        }
+
+        .hero-content p {
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+            font-weight: 300;
+        }
+
+        .tags {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .tag {
+            background-color: rgba(255, 255, 255, 0.2);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+        }
+
+        .hero-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .btn {
+            padding: 12px 30px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary {
+            background-color: var(--primary);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background-color: #152a47;
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: white;
+            border: 1px solid white;
+        }
+
+        .btn-secondary:hover {
+            background-color: white;
+            color: var(--primary);
+        }
+
+        /* 通用板块样式 */
+        .section {
+            padding: 100px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 60px;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 3px;
+            background-color: var(--accent);
+            margin: 20px auto 0;
+        }
+
+        /* 核心价值主张区 */
+        .values {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+
+        .value-card {
+            text-align: center;
+            padding: 40px 20px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease;
+        }
+
+        .value-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .value-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: var(--primary);
+        }
+
+        .value-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+        }
+
+        /* 明星产品展示区 */
+        .product-card {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+        }
+
+        .product-image {
+            background: url('https://images.unsplash.com/photo-1516939884455-1445c8652f83?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80') center/cover no-repeat;
+            min-height: 500px;
+        }
+
+        .product-content {
+            padding: 60px 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .product-content h3 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        .product-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-bottom: 30px;
+            color: var(--secondary);
+        }
+
+        .product-includes {
+            margin-bottom: 30px;
+        }
+
+        .product-includes ul {
+            list-style: none;
+        }
+
+        .product-includes li {
+            margin-bottom: 10px;
+            padding-left: 25px;
+            position: relative;
+        }
+
+        .product-includes li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+            font-weight: bold;
+        }
+
+        .product-buttons {
+            display: flex;
+            gap: 15px;
+        }
+
+        /* 沉浸式体验区 */
+        .experiences {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .experience-card {
+            position: relative;
+            height: 300px;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .experience-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .experience-card:hover .experience-image {
+            transform: scale(1.1);
+        }
+
+        .experience-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0, 0, 0, 0.7));
+            padding: 20px;
+            color: white;
+        }
+
+        .experience-overlay h3 {
+            color: white;
+            margin-bottom: 5px;
+        }
+
+        /* 传承人故事区 */
+        .inheritor {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .inheritor-image {
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .inheritor-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .inheritor-content h3 {
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+
+        .inheritor-title {
+            color: var(--secondary);
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+
+        .inheritor-quote {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            font-style: italic;
+            margin-bottom: 20px;
+            padding-left: 20px;
+            border-left: 3px solid var(--accent);
+        }
+
+        /* 游客评价区 */
+        .reviews {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .review-card {
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+        }
+
+        .review-author {
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: var(--primary);
+        }
+
+        /* 底部CTA区 */
+        .cta {
+            background: linear-gradient(rgba(26, 54, 93, 0.7), rgba(26, 54, 93, 0.7)), 
+                        url('https://images.unsplash.com/photo-1506905925346-21bda4d3264c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
+            padding: 120px 0;
+            text-align: center;
+            color: white;
+        }
+
+        .cta h2 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: white;
+        }
+
+        .cta p {
+            font-size: 1.5rem;
+            margin-bottom: 40px;
+            font-weight: 300;
+        }
+
+        .cta .btn {
+            font-size: 1.2rem;
+            padding: 15px 40px;
+        }
+
+        /* 页脚 */
+        footer {
+            background-color: var(--primary);
+            color: white;
+            padding: 60px 0 30px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-logo {
+            font-family: 'Noto Serif SC', serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .footer-links h4 {
+            color: white;
+            margin-bottom: 20px;
+        }
+
+        .footer-links ul {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        /* 移动端适配 */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-content p {
+                font-size: 1.2rem;
+            }
+
+            .tags {
+                flex-direction: column;
+                align-items: center;
+                gap: 10px;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .product-card {
+                grid-template-columns: 1fr;
+            }
+
+            .product-image {
+                min-height: 300px;
+            }
+
+            .inheritor {
+                grid-template-columns: 1fr;
+            }
+
+            .cta h2 {
+                font-size: 2rem;
+            }
+
+            .cta p {
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <nav>
+        <div class="container nav-container">
+            <div class="logo">女书与山雾</div>
+            <div class="nav-links">
+                <a href="#home">首页</a>
+                <a href="#product">线路产品</a>
+                <a href="#story">文化故事</a>
+                <a href="#about">关于我们</a>
+                <a href="#contact">联系我们</a>
+            </div>
+            <a href="#book" class="book-btn">立即预订</a>
+        </div>
+    </nav>
+
+    <!-- 首屏Hero区 -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>女书与山雾</h1>
+            <p>做一日瑶家女儿，识一纸千年闺字</p>
+            <div class="tags">
+                <span class="tag">✦ 8人精品小团</span>
+                <span class="tag">✦ 女书传人亲授</span>
+                <span class="tag">✦ 沉浸式瑶家生活</span>
+            </div>
+            <div class="hero-buttons">
+                <a href="#book" class="btn btn-primary">立即预订</a>
+                <a href="#video" class="btn btn-secondary">观看宣传片</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 核心价值主张区 -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">为什么选择《女书与山雾》？</h2>
+            <div class="values">
+                <div class="value-card">
+                    <div class="value-icon">🖌️</div>
+                    <h3>传承人亲授，而非导游讲解</h3>
+                    <p>由省级女书传人、瑶族老艺人全程带领，不是背诵台词的导游，而是故事的亲历者</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">👥</div>
+                    <h3>8人封顶小团，拒绝走马观花</h3>
+                    <p>严格控制每团不超过8人，确保每个人都能与传承人深度交流，获得一对一指导</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">🔥</div>
+                    <h3>生活式沉浸，而非景点打卡</h3>
+                    <p>不赶行程，不进购物店，在瑶家火塘打糍粑、在百年闺房写女书、在浦尾岛唱女歌</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 明星产品展示区 -->
+    <section class="section" id="product">
+        <div class="container">
+            <h2 class="section-title">我们的体验线路</h2>
+            <div class="product-card">
+                <div class="product-image"></div>
+                <div class="product-content">
+                    <h3>《女书与山雾》半日沉浸式体验</h3>
+                    <div class="product-meta">
+                        <span>⏱️ 时长：3小时</span>
+                        <span>👥 团规模：4-8人</span>
+                        <span>📍 地点：勾蓝瑶寨+浦尾岛</span>
+                        <span>💰 价格：¥398/人</span>
+                    </div>
+                    <div class="product-includes">
+                        <h4>包含体验</h4>
+                        <ul>
+                            <li>瑶家迎宾油茶</li>
+                            <li>女书临摹与识读</li>
+                            <li>八角花瑶绣体验</li>
+                            <li>瑶家糍粑制作</li>
+                            <li>女书吟唱仪式</li>
+                            <li>专属女书祝福卡</li>
+                        </ul>
+                    </div>
+                    <div class="product-buttons">
+                        <a href="#book" class="btn btn-primary">立即预订</a>
+                        <a href="#itinerary" class="btn btn-secondary">查看完整行程</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 沉浸式体验区 -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">你将经历什么？</h2>
+            <div class="experiences">
+                <div class="experience-card">
+                    <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="雾入瑶寨" class="experience-image">
+                    <div class="experience-overlay">
+                        <h3>雾入瑶寨</h3>
+                        <p>喝一杯瑶家油茶，做一日瑶家女儿</p>
+                    </div>
+                </div>
+                <div class="experience-card">
+                    <img src="https://images.unsplash.com/photo-1516939884455-1445c8652f83?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="山舍闺语" class="experience-image">
+                    <div class="experience-overlay">
+                        <h3>山舍闺语</h3>
+                        <p>在百年木楼里，听女书传人的千年故事</p>
+                    </div>
+                </div>
+                <div class="experience-card">
+                    <img src="https://images.unsplash.com/photo-1506905925346-21bda4d3264c?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="瑶火传情" class="experience-image">
+                    <div class="experience-overlay">
+                        <h3>瑶火传情</h3>
+                        <p>亲手捶打糍粑，学绣一朵八角花</p>
+                    </div>
+                </div>
+                <div class="experience-card">
+                    <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="雾隐书魂" class="experience-image">
+                    <div class="experience-overlay">
+                        <h3>雾隐书魂</h3>
+                        <p>以歌为祭，以字为证，敬千年女书</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 传承人故事区 -->
+    <section class="section" id="story">
+        <div class="container">
+            <h2 class="section-title">她们，是女书的活化石</h2>
+            <div class="inheritor">
+                <div class="inheritor-image">
+                    <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="云娘">
+                </div>
+                <div class="inheritor-content">
+                    <h3>云娘</h3>
+                    <p class="inheritor-title">省级非物质文化遗产女书传承人</p>
+                    <blockquote class="inheritor-quote">
+                        "女书是我们江永女人的悄悄话，传女不传男。以前，我们用它诉说心事、安慰姐妹；现在，我想把它讲给更多人听。"
+                    </blockquote>
+                    <p>写女书50年，教过的学生超过1000人。她用一生守护着这门世界上唯一的女性文字。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 游客评价区 -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">她们说</h2>
+            <div class="reviews">
+                <div class="review-card">
+                    <p class="review-author">林女士（上海）</p>
+                    <p>"这是我旅行中最感动的一次体验。云娘的女书课让我泪流满面，原来在那个男尊女卑的年代，女人用这样温柔又坚韧的方式，守护着自己的精神世界。"</p>
+                </div>
+                <div class="review-card">
+                    <p class="review-author">陈女士（广州）</p>
+                    <p>"8个人的小团真的太舒服了，每个人都能得到云娘的亲自指导。我写的女书'心'字，云娘还帮我盖了她的印章，这是我收到过最珍贵的礼物。"</p>
+                </div>
+                <div class="review-card">
+                    <p class="review-author">张女士（北京）</p>
+                    <p>"没有购物，没有赶行程，就是安安静静地体验瑶家生活，感受女书的魅力。推荐所有喜欢文化和慢旅行的朋友来。"</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 底部CTA区 -->
+    <section class="cta" id="book">
+        <div class="container">
+            <h2>山雾会散，女书永生</h2>
+            <p>我们在江永，等你赴一场千年之约</p>
+            <a href="#contact" class="btn btn-primary">立即预订《女书与山雾》</a>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-about">
+                    <div class="footer-logo">女书与山雾</div>
+                    <p>做一日瑶家女儿，识一纸千年闺字</p>
+                    <p>湖南江永勾蓝瑶寨</p>
+                </div>
+                <div class="footer-links">
+                    <h4>快速导航</h4>
+                    <ul>
+                        <li><a href="#home">首页</a></li>
+                        <li><a href="#product">线路产品</a></li>
+                        <li><a href="#story">文化故事</a></li>
+                        <li><a href="#about">关于我们</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>联系我们</h4>
+                    <ul>
+                        <li>微信：nvshuyushanwu</li>
+                        <li>电话：138-XXXX-XXXX</li>
+                        <li>邮箱：hello@nvshuyushanwu.com</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                © 2026 女书与山雾 版权所有
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
