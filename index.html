@@ -1,0 +1,717 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Heritage Journeys | Authentic Chinese Cultural Tours</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;700&family=Noto+Sans+SC:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #1A365D; /* 瑶族蓝靛色 */
+            --secondary: #8B5A2B; /* 暖木色 */
+            --accent: #C41E3A; /* 朱砂红 */
+            --paper: #F8F7F2; /* 宣纸白 */
+            --ink: #2D3748; /* 墨黑色 */
+            --light-gray: #E2E8F0;
+        }
+
+        body {
+            font-family: 'Noto Sans SC', sans-serif;
+            color: var(--ink);
+            line-height: 1.7;
+            background-color: var(--paper);
+            font-weight: 400;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Noto Serif SC', serif;
+            font-weight: 600;
+            color: var(--primary);
+            line-height: 1.3;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* 导航栏 - Context Travel 极简风格 */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color: rgba(248, 247, 242, 0.98);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 20px 0;
+            border-bottom: 1px solid rgba(26, 54, 93, 0.05);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Noto Serif SC', serif;
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--primary);
+            letter-spacing: 0.5px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--ink);
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.3s ease;
+            letter-spacing: 0.3px;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .book-btn {
+            background-color: var(--primary);
+            color: white;
+            padding: 10px 24px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: background-color 0.3s ease;
+            letter-spacing: 0.3px;
+        }
+
+        .book-btn:hover {
+            background-color: #152a47;
+            color: white;
+        }
+
+        .lang-switch {
+            font-size: 0.85rem;
+            color: var(--secondary);
+            cursor: pointer;
+        }
+
+        /* 首屏 Hero 区 - Context 大图片+极简文字 */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(26, 54, 93, 0.5), rgba(26, 54, 93, 0.5)), 
+                        url('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            color: white;
+            margin-top: 76px;
+        }
+
+        .hero-content {
+            max-width: 600px;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 24px;
+            color: white;
+            letter-spacing: -0.5px;
+        }
+
+        .hero-content p {
+            font-size: 1.25rem;
+            margin-bottom: 40px;
+            font-weight: 300;
+            line-height: 1.8;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
+        }
+
+        .btn {
+            padding: 14px 32px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            font-size: 1rem;
+            letter-spacing: 0.3px;
+        }
+
+        .btn-primary {
+            background-color: var(--primary);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background-color: #152a47;
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: white;
+            border: 1px solid white;
+        }
+
+        .btn-secondary:hover {
+            background-color: white;
+            color: var(--primary);
+        }
+
+        /* 通用板块样式 */
+        .section {
+            padding: 120px 0;
+        }
+
+        .section-header {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 80px;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .section-subtitle {
+            font-size: 1.1rem;
+            color: var(--secondary);
+            font-weight: 400;
+        }
+
+        /* 核心价值主张 - Context 三列图标+文字 */
+        .values {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 60px;
+        }
+
+        .value-card {
+            text-align: center;
+        }
+
+        .value-icon {
+            width: 64px;
+            height: 64px;
+            margin: 0 auto 24px;
+            background-color: rgba(26, 54, 93, 0.05);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            color: var(--primary);
+        }
+
+        .value-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 16px;
+        }
+
+        .value-card p {
+            color: var(--ink);
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
+        /* 产品展示区 - Context 卡片风格 */
+        .tours {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+        }
+
+        .tour-card {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .tour-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .tour-image {
+            height: 240px;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .tour-content {
+            padding: 32px;
+        }
+
+        .tour-category {
+            font-size: 0.8rem;
+            color: var(--secondary);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 12px;
+            font-weight: 500;
+        }
+
+        .tour-title {
+            font-size: 1.4rem;
+            margin-bottom: 16px;
+        }
+
+        .tour-description {
+            margin-bottom: 24px;
+            color: var(--ink);
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
+        .tour-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 24px;
+            font-size: 0.9rem;
+            color: var(--secondary);
+        }
+
+        .tour-price {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--primary);
+        }
+
+        /* 专家/传承人展示区 - Context 核心特色 */
+        .experts {
+            background-color: white;
+        }
+
+        .expert-card {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 60px;
+            align-items: center;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .expert-image {
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .expert-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .expert-content h3 {
+            font-size: 1.8rem;
+            margin-bottom: 8px;
+        }
+
+        .expert-title {
+            color: var(--secondary);
+            margin-bottom: 24px;
+            font-size: 1rem;
+        }
+
+        .expert-bio {
+            margin-bottom: 24px;
+            line-height: 1.8;
+            font-size: 1rem;
+        }
+
+        .expert-quote {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            font-style: italic;
+            padding-left: 24px;
+            border-left: 3px solid var(--accent);
+            color: var(--primary);
+        }
+
+        /* 体验亮点区 */
+        .highlights {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+        }
+
+        .highlight-card {
+            padding: 24px;
+        }
+
+        .highlight-card h3 {
+            font-size: 1.2rem;
+            margin-bottom: 16px;
+        }
+
+        .highlight-card p {
+            font-size: 0.95rem;
+            line-height: 1.7;
+            color: var(--ink);
+        }
+
+        /* 底部 CTA 区 */
+        .cta {
+            background: linear-gradient(rgba(26, 54, 93, 0.7), rgba(26, 54, 93, 0.7)), 
+                        url('https://images.unsplash.com/photo-1506905925346-21bda4d3264c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
+            padding: 140px 0;
+            text-align: center;
+            color: white;
+        }
+
+        .cta h2 {
+            font-size: 2.8rem;
+            margin-bottom: 20px;
+            color: white;
+        }
+
+        .cta p {
+            font-size: 1.2rem;
+            margin-bottom: 40px;
+            font-weight: 300;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta .btn {
+            font-size: 1.1rem;
+            padding: 16px 48px;
+        }
+
+        /* 页脚 */
+        footer {
+            background-color: var(--primary);
+            color: white;
+            padding: 80px 0 40px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 60px;
+            margin-bottom: 60px;
+        }
+
+        .footer-logo {
+            font-family: 'Noto Serif SC', serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .footer-about {
+            font-size: 0.95rem;
+            line-height: 1.7;
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 24px;
+        }
+
+        .footer-links h4 {
+            color: white;
+            margin-bottom: 24px;
+            font-size: 1.1rem;
+        }
+
+        .footer-links ul {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            transition: color 0.3s ease;
+            font-size: 0.95rem;
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 40px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.85rem;
+        }
+
+        /* 移动端适配 */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero-content h1 {
+                font-size: 2.2rem;
+            }
+
+            .hero-content p {
+                font-size: 1.1rem;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .expert-card {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .cta h2 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <nav>
+        <div class="container nav-container">
+            <div class="logo">Heritage Journeys</div>
+            <div class="nav-links">
+                <a href="#tours">Tours</a>
+                <a href="#experts">Our Experts</a>
+                <a href="#about">About Us</a>
+                <a href="#faq">FAQ</a>
+                <a href="#contact">Contact</a>
+                <span class="lang-switch">EN / 中文</span>
+            </div>
+            <a href="#book" class="book-btn">Book Now</a>
+        </div>
+    </nav>
+
+    <!-- 首屏 Hero 区 -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Walk with Scholars. Live the Culture.</h1>
+                <p>Small-group cultural tours led by university professors, master artisans, and cultural inheritors. Discover the hidden stories of China beyond the tourist trail.</p>
+                <div class="hero-buttons">
+                    <a href="#tours" class="btn btn-primary">Explore Tours</a>
+                    <a href="#experts" class="btn btn-secondary">Meet Our Experts</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 核心价值主张区 -->
+    <section class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Why Travel With Us</h2>
+                <p class="section-subtitle">We believe that the best cultural experiences come from deep connections, not rushed itineraries.</p>
+            </div>
+            <div class="values">
+                <div class="value-card">
+                    <div class="value-icon">🎓</div>
+                    <h3>Expert-Led</h3>
+                    <p>All our tours are led by PhD-level scholars, master artisans, and official cultural inheritors. Learn from the people who live and breathe the culture.</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">👥</div>
+                    <h3>Maximum 8 People</h3>
+                    <p>We limit all our tours to just 8 guests. This ensures you get personal attention from your expert and meaningful interactions with local communities.</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">🏡</div>
+                    <h3>Authentic Experiences</h3>
+                    <p>No tourist traps, no shopping stops. We take you to hidden villages, private workshops, and family homes to experience real Chinese culture.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 产品展示区 -->
+    <section class="section" id="tours">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Our Signature Tours</h2>
+                <p class="section-subtitle">Carefully crafted itineraries designed to deepen your understanding of Chinese history and culture.</p>
+            </div>
+            <div class="tours">
+                <div class="tour-card">
+                    <div class="tour-image" style="background-image: url('https://images.unsplash.com/photo-1516939884455-1445c8652f83?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80')"></div>
+                    <div class="tour-content">
+                        <div class="tour-category">Intangible Heritage</div>
+                        <h3 class="tour-title">Nüshu: The Women's Script</h3>
+                        <p class="tour-description">Discover the world's only writing system created exclusively by and for women. Learn to write Nüshu from a 5th-generation inheritor in the remote villages of Jiangyong.</p>
+                        <div class="tour-meta">
+                            <span>3 Hours</span>
+                            <span>Max 8 People</span>
+                        </div>
+                        <div class="tour-price">From $59 per person</div>
+                    </div>
+                </div>
+
+                <div class="tour-card">
+                    <div class="tour-image" style="background-image: url('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80')"></div>
+                    <div class="tour-content">
+                        <div class="tour-category">Ethnic Culture</div>
+                        <h3 class="tour-title">Yao Mountain Villages</h3>
+                        <p class="tour-description">Immerse yourself in the ancient culture of the Yao people. Stay in a traditional wooden house, learn to make indigo dye, and participate in local festivals.</p>
+                        <div class="tour-meta">
+                            <span>2 Days</span>
+                            <span>Max 8 People</span>
+                        </div>
+                        <div class="tour-price">From $299 per person</div>
+                    </div>
+                </div>
+
+                <div class="tour-card">
+                    <div class="tour-image" style="background-image: url('https://images.unsplash.com/photo-1506905925346-21bda4d3264c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80')"></div>
+                    <div class="tour-content">
+                        <div class="tour-category">Art & Craft</div>
+                        <h3 class="tour-title">Bamboo Weaving Masterclass</h3>
+                        <p class="tour-description">Learn the ancient art of bamboo weaving from a national master craftsman. Create your own bamboo artwork to take home as a unique souvenir.</p>
+                        <div class="tour-meta">
+                            <span>4 Hours</span>
+                            <span>Max 6 People</span>
+                        </div>
+                        <div class="tour-price">From $79 per person</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 专家/传承人展示区 -->
+    <section class="section experts" id="experts">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Meet Our Experts</h2>
+                <p class="section-subtitle">Our guides are not just tour guides. They are scholars, artists, and cultural inheritors who have dedicated their lives to preserving Chinese heritage.</p>
+            </div>
+            <div class="expert-card">
+                <div class="expert-image">
+                    <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Master He Yunying">
+                </div>
+                <div class="expert-content">
+                    <h3>He Yunying</h3>
+                    <p class="expert-title">Provincial-level Nüshu Inheritor</p>
+                    <p class="expert-bio">Master He has been practicing Nüshu for over 50 years. She learned the script from her grandmother and mother, and has taught more than 1,000 students from around the world. She is dedicated to preserving this unique cultural heritage for future generations.</p>
+                    <blockquote class="expert-quote">
+                        "Nüshu is not just a writing system. It is the voice of our mothers and grandmothers. It is the story of women's strength and sisterhood."
+                    </blockquote>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 体验亮点区 -->
+    <section class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">What You'll Experience</h2>
+                <p class="section-subtitle">Every tour is designed to engage all your senses and create lasting memories.</p>
+            </div>
+            <div class="highlights">
+                <div class="highlight-card">
+                    <h3>Hands-On Workshops</h3>
+                    <p>Learn traditional crafts from master artisans. Write Nüshu, weave bamboo, make indigo dye, and create your own unique souvenirs.</p>
+                </div>
+                <div class="highlight-card">
+                    <h3>Local Cuisine</h3>
+                    <p>Enjoy home-cooked meals made with fresh, local ingredients. Learn to cook traditional Yao dishes and share meals with local families.</p>
+                </div>
+                <div class="highlight-card">
+                    <h3>Cultural Performances</h3>
+                    <p>Experience traditional Yao music, dance, and singing. Participate in local festivals and ceremonies that are rarely seen by tourists.</p>
+                </div>
+                <div class="highlight-card">
+                    <h3>Meaningful Connections</h3>
+                    <p>Meet local villagers, hear their stories, and build genuine connections. Your visit directly supports the local community and cultural preservation efforts.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 底部 CTA 区 -->
+    <section class="cta" id="book">
+        <div class="container">
+            <h2>Ready to Discover the Real China?</h2>
+            <p>Join us on a journey that will change the way you see Chinese culture. Book your tour today and walk with the experts.</p>
+            <a href="#contact" class="btn btn-primary">Book Your Tour Now</a>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-about-section">
+                    <div class="footer-logo">Heritage Journeys</div>
+                    <p class="footer-about">We create authentic cultural experiences that connect travelers with the living heritage of China. Our mission is to preserve traditional culture through responsible tourism.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Tours</h4>
+                    <ul>
+                        <li><a href="#">Nüshu Experience</a></li>
+                        <li><a href="#">Yao Villages</a></li>
+                        <li><a href="#">Bamboo Weaving</a></li>
+                        <li><a href="#">Custom Tours</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Our Experts</a></li>
+                        <li><a href="#">Sustainability</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Booking Terms</a></li>
+                        <li><a href="#">Cancellation Policy</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                © 2026 Heritage Journeys. All rights reserved.
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
